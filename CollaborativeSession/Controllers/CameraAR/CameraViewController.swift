@@ -116,21 +116,21 @@ class ViewController: UIViewController, ARSessionDelegate {
                                               materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
                 
                 //request Input
-                let inputComment = "memoAR";
-                let alertController = UIAlertController(title: "Please enter your comment below", message: nul, preferredStyle: .alert)
-                alert.addTextField { (textField) in
+                var inputComment = "memoAR";
+                let alertController = UIAlertController(title: "Please enter your comment below", message: nil, preferredStyle: .alert)
+                alertController.addTextField { (textField) in
                     textField.text = "Enter text here"
                 }
                 
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                    let textField = alert.textFields![0]
-                    inputComment = textField.text
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
+                    var textField = alertController?.textFields![0]
+                    inputComment = textField!.text!
                 }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
                 
                 //Generate Text
-                let coloredText =  ModelEntity(mesh: MeshResource.generateText("Hello, World!",
+                let coloredText =  ModelEntity(mesh: MeshResource.generateText(inputComment,
                                                         extrusionDepth: 0.25,
                                                         font: .systemFont(ofSize: 0.25),
                                                         containerFrame: CGRect.zero,
