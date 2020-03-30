@@ -69,7 +69,7 @@ class ViewController: UIViewController, ARSessionDelegate {
 
         arView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:))))
         
-        messageLabel.displayMessage("Tap the screen to place cubes.\nInvite others to launch this app to join you.", duration: 60.0)
+        messageLabel.displayMessage("Tap the screen to place comment.\nInvite others to launch this app to join you.", duration: 60.0)
     }
     
     @objc
@@ -77,7 +77,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         let location = recognizer.location(in: arView)
         
         // Attempt to find a 3D location on a horizontal surface underneath the user's touch location.
-        let results = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .horizontal)
+        let results = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .any)
         if let firstResult = results.first {
             // Add an ARAnchor at the touch location with a special name you check later in `session(_:didAdd:)`.
             let anchor = ARAnchor(name: "Anchor for object placement", transform: firstResult.worldTransform)
@@ -106,19 +106,31 @@ class ViewController: UIViewController, ARSessionDelegate {
                 
                 arView.scene.addAnchor(anchorEntity)
             } else if anchor.name == "Anchor for object placement" {
-                // Create a cube at the location of the anchor.
-                let boxLength: Float = 0.05
-                // Color the cube based on the user that placed it.
-                let color = anchor.sessionIdentifier?.toRandomColor() ?? .white
-                let coloredCube = ModelEntity(mesh: MeshResource.generateBox(size: boxLength),
-                                              materials: [SimpleMaterial(color: color, isMetallic: true)])
-                // Offset the cube by half its length to align its bottom with the real-world surface.
-                coloredCube.position = [0, boxLength / 2, 0]
+                // Create a sphere at the location of the anchor.
+                let sphereRadius: Float = 0.1
+                // Color the sphere based on the user that placed it.
+                let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
+                let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
+                                              materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
                 
-                // Attach the cube to the ARAnchor via an AnchorEntity.
+                //Generate Text
+                let coloredText =  ModelComponent(mesh: MeshRessource.generateText("Hello, World!",
+                                                        extrusionDepth: 0.25,
+                                                        font: .systemFont(ofSize: 0.25),
+                                                        containerFrame: CGRect.zero,
+                                                        alignment: .center,
+                                                        lineBreakMode: .byCharWrapping),
+                                                  materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: true)])
+                
+                // Offset the sphere by half if the bottom is not aligned with the real-world surface.
+                coloredSphere.position = [0, sphereRadius, 0]
+                coloredText.position = [0, sphereRadius, 0]
+                
+                // Attach the sphere to the ARAnchor via an AnchorEntity.
                 //   World origin -> ARAnchor -> AnchorEntity -> ModelEntity
                 let anchorEntity = AnchorEntity(anchor: anchor)
-                anchorEntity.addChild(coloredCube)
+                anchorEntity.addChild(coloredSphere)
+                anchorEntity.addChild(coloredText)
                 arView.scene.addAnchor(anchorEntity)
             }
         }
