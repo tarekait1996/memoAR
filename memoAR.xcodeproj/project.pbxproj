@@ -175,7 +175,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */;
+			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -370,7 +370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L764T79D;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,7 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L764T79D;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -407,7 +407,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */ = {
+		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C34B3DB23077FC5005DB76E /* Debug */,

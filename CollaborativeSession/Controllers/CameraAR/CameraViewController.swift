@@ -130,7 +130,7 @@ class ViewController: UIViewController, ARSessionDelegate {
                 self.present(alert, animated: true, completion: nil)
                 
                 //Generate Text
-                let coloredText =  ModelComponent(mesh: MeshRessource.generateText(inputComment,
+                let coloredText =  ModelEntity(mesh: MeshResource.generateText("Hello, World!",
                                                         extrusionDepth: 0.25,
                                                         font: .systemFont(ofSize: 0.25),
                                                         containerFrame: CGRect.zero,
@@ -173,7 +173,7 @@ class ViewController: UIViewController, ARSessionDelegate {
 
     func receivedData(_ data: Data, from peer: MCPeerID) {
         if let collaborationData = try? NSKeyedUnarchiver.unarchivedObject(ofClass: ARSession.CollaborationData.self, from: data) {
-            arView.session.update(with: collaborationData)
+            arView.session.update(with: collaborationData!)
             return
         }
         // ...
