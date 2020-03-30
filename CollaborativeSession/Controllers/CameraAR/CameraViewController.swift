@@ -15,6 +15,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     @IBOutlet var arView: ARView!
     @IBOutlet weak var messageLabel: MessageLabel!
     @IBOutlet weak var restartButton: UIButton!
+
+    var commentTextField: UITextField?
     
     var multipeerSession: MultipeerSession?
     
@@ -113,14 +115,28 @@ class ViewController: UIViewController, ARSessionDelegate {
                 let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
                                               materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
                 
+                //request Input
+                let inputComment = "memoAR";
+                let alertController = UIAlertController(title: "Please enter your comment below", message: nul, preferredStyle: .alert)
+                alert.addTextField { (textField) in
+                    textField.text = "Enter text here"
+                }
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                    let textField = alert.textFields![0]
+                    inputComment = textField.text
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
                 //Generate Text
-                let coloredText =  ModelComponent(mesh: MeshRessource.generateText("Hello, World!",
+                let coloredText =  ModelComponent(mesh: MeshRessource.generateText(inputComment,
                                                         extrusionDepth: 0.25,
                                                         font: .systemFont(ofSize: 0.25),
                                                         containerFrame: CGRect.zero,
                                                         alignment: .center,
                                                         lineBreakMode: .byCharWrapping),
-                                                  materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: true)])
+                                                  materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: false)])
                 
                 // Offset the sphere by half if the bottom is not aligned with the real-world surface.
                 coloredSphere.position = [0, sphereRadius, 0]
@@ -134,6 +150,11 @@ class ViewController: UIViewController, ARSessionDelegate {
                 arView.scene.addAnchor(anchorEntity)
             }
         }
+    }
+    
+    func commentTextField(textField: UITextField!) {
+        self.commentTextField = textField
+        self.commentTextField?.placeholder = "Enter text here"
     }
     
     /// - Tag: DidOutputCollaborationData
