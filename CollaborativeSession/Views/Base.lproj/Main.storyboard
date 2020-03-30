@@ -10,8 +10,7 @@
         <!--welcome screen-->
         <scene sceneID="WJO-ND-dMi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K2-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="LA4-wl-DX4" userLabel="welcome screen" sceneMemberID="viewController">
+                <viewController id="LA4-wl-DX4" userLabel="welcome screen" customClass="WelcomeScreenVC" customModule="MemoAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tpx-lu-O2g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,9 +62,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2j2-oC-lvF"/>
                     </view>
+                    <connections>
+                        <outlet property="startBtn" destination="Inf-60-LNg" id="xEa-cM-eJf"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K2-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-901.44927536231887" y="133.25892857142856"/>
+            <point key="canvasLocation" x="-816" y="134"/>
         </scene>
         <!--loginVC-->
         <scene sceneID="dUu-n2-koy">
