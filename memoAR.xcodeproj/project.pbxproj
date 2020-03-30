@@ -134,7 +134,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */;
+			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -326,7 +326,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L764T79D;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +334,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CollaborativeSession${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = MemoAR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -347,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L764T79D;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,7 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CollaborativeSession${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = MemoAR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -363,7 +363,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */ = {
+		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C34B3DB23077FC5005DB76E /* Debug */,
