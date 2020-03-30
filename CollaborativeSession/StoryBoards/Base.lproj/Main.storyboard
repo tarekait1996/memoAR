@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LA4-wl-DX4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="WJO-ND-dMi">
+            <objects>
+                <viewController id="LA4-wl-DX4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tpx-lu-O2g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovk-Yq-D0P">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sU5-LC-Z9A">
+                                        <rect key="frame" x="0.0" y="20" width="394" height="778"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7vU-PR-Rgs">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="601"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to memoAR!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHM-0D-1wf">
+                                                <rect key="frame" x="0.0" y="601" width="394" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bJ-2l-6PU">
+                                                <rect key="frame" x="0.0" y="643" width="394" height="135"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUj-0p-ggi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="135"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <state key="normal" title="Let's start">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="5E1-OO-ZmE" kind="show" id="VrT-Ub-unp"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.68934953210000005" blue="0.264799118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="sU5-LC-Z9A" firstAttribute="leading" secondItem="Ovk-Yq-D0P" secondAttribute="leading" id="Ikk-Wr-dyX"/>
+                                    <constraint firstAttribute="trailing" secondItem="sU5-LC-Z9A" secondAttribute="trailing" constant="20" symbolic="YES" id="Ntb-Xl-QX7"/>
+                                    <constraint firstAttribute="bottom" secondItem="sU5-LC-Z9A" secondAttribute="bottom" constant="20" symbolic="YES" id="Trl-AI-WLw"/>
+                                    <constraint firstItem="sU5-LC-Z9A" firstAttribute="top" secondItem="Ovk-Yq-D0P" secondAttribute="top" constant="20" symbolic="YES" id="oXO-am-JIA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2j2-oC-lvF" firstAttribute="trailing" secondItem="Ovk-Yq-D0P" secondAttribute="trailing" id="8nb-WH-DKh"/>
+                            <constraint firstItem="2j2-oC-lvF" firstAttribute="bottom" secondItem="Ovk-Yq-D0P" secondAttribute="bottom" id="X3Y-vC-QYo"/>
+                            <constraint firstItem="Ovk-Yq-D0P" firstAttribute="top" secondItem="2j2-oC-lvF" secondAttribute="top" id="mEL-9Q-L1I"/>
+                            <constraint firstItem="Ovk-Yq-D0P" firstAttribute="leading" secondItem="2j2-oC-lvF" secondAttribute="leading" id="ziv-P5-ovE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2j2-oC-lvF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K2-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-899" y="134"/>
+        </scene>
+        <!--loginVC-->
+        <scene sceneID="dUu-n2-koy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" referencedIdentifier="loginVC" id="5E1-OO-ZmE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MfF-8I-5wb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSk-6Z-sdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-368" y="-162"/>
+        </scene>
+        <!--ARView-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ARVC" id="BYZ-38-t0r" userLabel="ARView" customClass="ViewController" customModule="MemoAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="ARView" customClass="ARView" customModule="RealityKit">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dzn-77-jOS" customClass="MessageLabel" customModule="MemoAR" customModuleProvider="target">
+                                <rect key="frame" x="5" y="49" width="404" height="90"/>
+                                <color key="backgroundColor" red="0.6922967941" green="0.6922967941" blue="0.6922967941" alpha="0.88345296959999997" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Mjm-u3-7eQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r46-Z0-vEO" userLabel="Restart Experience Button Icon">
+                                <rect key="frame" x="365" y="109" width="44" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="NiT-Do-zdY"/>
+                                    <constraint firstAttribute="height" constant="59" id="dc4-Si-ARy"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="12"/>
+                                <state key="normal" image="restart"/>
+                                <state key="selected" image="restartPressed"/>
+                                <state key="highlighted" image="restartPressed"/>
+                                <connections>
+                                    <action selector="resetTracking" destination="BYZ-38-t0r" eventType="touchUpInside" id="YId-D5-jQC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dzn-77-jOS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="J33-yL-U4r"/>
+                            <constraint firstItem="r46-Z0-vEO" firstAttribute="top" secondItem="Dzn-77-jOS" secondAttribute="bottom" id="aXh-8z-jS6"/>
+                            <constraint firstItem="Dzn-77-jOS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="eN0-G7-uDw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dzn-77-jOS" secondAttribute="trailing" constant="5" id="hAM-Bb-6Yj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r46-Z0-vEO" secondAttribute="trailing" constant="5" id="r3R-QF-Y5O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="arView" destination="8bC-Xf-vdC" id="TPV-4x-avp"/>
+                        <outlet property="messageLabel" destination="Dzn-77-jOS" id="xgB-wi-khC"/>
+                        <outlet property="restartButton" destination="r46-Z0-vEO" id="tHi-cZ-coI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="601" height="601"/>
+        <image name="restart" width="20" height="20"/>
+        <image name="restartPressed" width="16" height="16"/>
+    </resources>
+</document>
