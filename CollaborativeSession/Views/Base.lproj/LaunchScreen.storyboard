@@ -15,13 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="kOX-5N-tNr">
-                                <rect key="frame" x="50" y="89" width="313.99999999999989" height="718"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash Screen-1" translatesAutoresizingMaskIntoConstraints="NO" id="iTA-z0-gCE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.68934953210000005" blue="0.264799118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="1" green="0.68934953210000005" blue="0.264799118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iTA-z0-gCE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="hb9-uh-DVp"/>
+                            <constraint firstItem="iTA-z0-gCE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qni-kT-qA1"/>
+                            <constraint firstAttribute="bottom" secondItem="iTA-z0-gCE" secondAttribute="bottom" id="x5y-pg-stv"/>
+                            <constraint firstAttribute="trailing" secondItem="iTA-z0-gCE" secondAttribute="trailing" id="zEx-Sc-fc5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -31,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="601" height="601"/>
+        <image name="Splash Screen-1" width="375" height="812"/>
     </resources>
 </document>

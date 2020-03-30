@@ -7,70 +7,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--welcome screen-->
         <scene sceneID="WJO-ND-dMi">
             <objects>
-                <viewController id="LA4-wl-DX4" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K2-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="LA4-wl-DX4" userLabel="welcome screen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tpx-lu-O2g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovk-Yq-D0P">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovk-Yq-D0P" userLabel="background">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sU5-LC-Z9A">
-                                        <rect key="frame" x="0.0" y="20" width="394" height="778"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sU5-LC-Z9A">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7vU-PR-Rgs">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="601"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Za3-OP-eKK">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="601"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to memoAR!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHM-0D-1wf">
-                                                <rect key="frame" x="0.0" y="601" width="394" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome! This app is part of a research project for SOEN 357. Enjoy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtl-bP-f5C">
+                                                <rect key="frame" x="0.0" y="601" width="414" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bJ-2l-6PU">
-                                                <rect key="frame" x="0.0" y="643" width="394" height="135"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUj-0p-ggi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="135"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="Let's start">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <segue destination="5E1-OO-ZmE" kind="show" id="VrT-Ub-unp"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-60-LNg">
+                                                <rect key="frame" x="0.0" y="642" width="414" height="176"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="55"/>
+                                                <state key="normal" title="Start &gt;">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="5E1-OO-ZmE" kind="show" id="Qlk-Fm-l4f"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.68934953210000005" blue="0.264799118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="sU5-LC-Z9A" firstAttribute="leading" secondItem="Ovk-Yq-D0P" secondAttribute="leading" id="Ikk-Wr-dyX"/>
-                                    <constraint firstAttribute="trailing" secondItem="sU5-LC-Z9A" secondAttribute="trailing" constant="20" symbolic="YES" id="Ntb-Xl-QX7"/>
-                                    <constraint firstAttribute="bottom" secondItem="sU5-LC-Z9A" secondAttribute="bottom" constant="20" symbolic="YES" id="Trl-AI-WLw"/>
-                                    <constraint firstItem="sU5-LC-Z9A" firstAttribute="top" secondItem="Ovk-Yq-D0P" secondAttribute="top" constant="20" symbolic="YES" id="oXO-am-JIA"/>
+                                    <constraint firstItem="sU5-LC-Z9A" firstAttribute="top" secondItem="Ovk-Yq-D0P" secondAttribute="top" id="FfE-VL-ekJ"/>
+                                    <constraint firstItem="sU5-LC-Z9A" firstAttribute="leading" secondItem="Ovk-Yq-D0P" secondAttribute="leading" id="XRE-kT-wjb"/>
+                                    <constraint firstAttribute="trailing" secondItem="sU5-LC-Z9A" secondAttribute="trailing" id="meh-rS-1C7"/>
+                                    <constraint firstAttribute="bottom" secondItem="sU5-LC-Z9A" secondAttribute="bottom" id="tXr-Kh-SSB"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.68934953210000005" blue="0.264799118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2j2-oC-lvF" firstAttribute="trailing" secondItem="Ovk-Yq-D0P" secondAttribute="trailing" id="8nb-WH-DKh"/>
+                            <constraint firstAttribute="trailing" secondItem="Ovk-Yq-D0P" secondAttribute="trailing" id="8nb-WH-DKh"/>
                             <constraint firstItem="2j2-oC-lvF" firstAttribute="bottom" secondItem="Ovk-Yq-D0P" secondAttribute="bottom" id="X3Y-vC-QYo"/>
                             <constraint firstItem="Ovk-Yq-D0P" firstAttribute="top" secondItem="2j2-oC-lvF" secondAttribute="top" id="mEL-9Q-L1I"/>
-                            <constraint firstItem="Ovk-Yq-D0P" firstAttribute="leading" secondItem="2j2-oC-lvF" secondAttribute="leading" id="ziv-P5-ovE"/>
+                            <constraint firstItem="Ovk-Yq-D0P" firstAttribute="leading" secondItem="Tpx-lu-O2g" secondAttribute="leading" id="ziv-P5-ovE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2j2-oC-lvF"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K2-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-899" y="134"/>
+            <point key="canvasLocation" x="-901.44927536231887" y="133.25892857142856"/>
         </scene>
         <!--loginVC-->
         <scene sceneID="dUu-n2-koy">
