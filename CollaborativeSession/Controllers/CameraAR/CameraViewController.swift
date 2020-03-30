@@ -149,11 +149,6 @@ class ViewController: UIViewController, ARSessionDelegate {
         }
     }
     
-    func commentTextField(textField: UITextField!) {
-        self.commentTextField = textField
-        self.commentTextField?.placeholder = "Enter text here"
-    }
-    
     /// - Tag: DidOutputCollaborationData
     func session(_ session: ARSession, didOutputCollaborationData data: ARSession.CollaborationData) {
         guard let multipeerSession = multipeerSession else { return }
