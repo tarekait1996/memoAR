@@ -108,46 +108,43 @@ class ViewController: UIViewController, ARSessionDelegate {
                 
                 arView.scene.addAnchor(anchorEntity)
             } else if anchor.name == "Anchor for object placement" {
-                // Create a sphere at the location of the anchor.
-                let sphereRadius: Float = 0.1
-                // Color the sphere based on the user that placed it.
-                let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
-                let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
-                                              materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
-                
                 //request Input
-                var inputComment = "memoAR";
                 let alertController = UIAlertController(title: "Please enter your comment below", message: nil, preferredStyle: .alert)
                 alertController.addTextField { (textField) in
                     textField.text = "Enter text here"
                 }
                 
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
+                    // Create a sphere at the location of the anchor.
+                    let sphereRadius: Float = 0.2
+                    let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
+                    let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
+                                                    materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
+                    //Generate Text
                     var textField = alertController?.textFields![0]
-                    inputComment = textField!.text!
+                    let inputComment = textField!.text!
+                    let coloredText =  ModelEntity(mesh: MeshResource.generateText(inputComment,
+                                                                                   extrusionDepth: 0.025,
+                                                                                   font: .systemFont(ofSize: 0.01),
+                                                                                   containerFrame: CGRect.zero,
+                                                                                   alignment: .center,
+                                                                                   lineBreakMode: .byCharWrapping),
+                                                   materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: false)])
+                    
+                    // Offset the sphere by half if the bottom is not aligned with the real-world surface.
+                    coloredSphere.position = [0, sphereRadius, 0]
+                    coloredText.position = [0, sphereRadius, 0]
+                    
+                    // Attach the sphere to the ARAnchor via an AnchorEntity.
+                    //   World origin -> ARAnchor -> AnchorEntity -> ModelEntity
+                    let anchorEntity = AnchorEntity(anchor: anchor)
+                    anchorEntity.addChild(coloredSphere)
+                    anchorEntity.addChild(coloredText)
+                    arView.scene.addAnchor(anchorEntity)
                 }))
+                
                 alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
-                
-                //Generate Text
-                let coloredText =  ModelEntity(mesh: MeshResource.generateText(inputComment,
-                                                        extrusionDepth: 0.25,
-                                                        font: .systemFont(ofSize: 0.25),
-                                                        containerFrame: CGRect.zero,
-                                                        alignment: .center,
-                                                        lineBreakMode: .byCharWrapping),
-                                                  materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: false)])
-                
-                // Offset the sphere by half if the bottom is not aligned with the real-world surface.
-                coloredSphere.position = [0, sphereRadius, 0]
-                coloredText.position = [0, sphereRadius, 0]
-                
-                // Attach the sphere to the ARAnchor via an AnchorEntity.
-                //   World origin -> ARAnchor -> AnchorEntity -> ModelEntity
-                let anchorEntity = AnchorEntity(anchor: anchor)
-                anchorEntity.addChild(coloredSphere)
-                anchorEntity.addChild(coloredText)
-                arView.scene.addAnchor(anchorEntity)
             }
         }
     }
