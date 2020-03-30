@@ -107,18 +107,30 @@ class ViewController: UIViewController, ARSessionDelegate {
                 arView.scene.addAnchor(anchorEntity)
             } else if anchor.name == "Anchor for object placement" {
                 // Create a sphere at the location of the anchor.
-                let sphereRadius: Float = 0.05
+                let sphereRadius: Float = 0.1
                 // Color the sphere based on the user that placed it.
-                let color = anchor.sessionIdentifier?.toRandomColor() ?? .white
+                let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
                 let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
                                               materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
+                
+                //Generate Text
+                let coloredText =  ModelComponent(mesh: MeshRessource.generateText("Hello, World!",
+                                                        extrusionDepth: 0.25,
+                                                        font: .systemFont(ofSize: 0.25),
+                                                        containerFrame: CGRect.zero,
+                                                        alignment: .center,
+                                                        lineBreakMode: .byCharWrapping),
+                                                  materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: true)])
+                
                 // Offset the sphere by half if the bottom is not aligned with the real-world surface.
                 coloredSphere.position = [0, sphereRadius, 0]
+                coloredText.position = [0, sphereRadius, 0]
                 
                 // Attach the sphere to the ARAnchor via an AnchorEntity.
                 //   World origin -> ARAnchor -> AnchorEntity -> ModelEntity
                 let anchorEntity = AnchorEntity(anchor: anchor)
                 anchorEntity.addChild(coloredSphere)
+                anchorEntity.addChild(coloredText)
                 arView.scene.addAnchor(anchorEntity)
             }
         }
