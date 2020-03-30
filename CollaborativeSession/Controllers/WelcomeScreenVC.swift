@@ -16,4 +16,7 @@ class WelcomeScreenVC: UIViewController {
         
         
     }
+    @IBAction func onStartClick(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToSignIn", sender: self)
+    }
 }

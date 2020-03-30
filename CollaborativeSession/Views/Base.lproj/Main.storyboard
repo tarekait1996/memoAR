@@ -37,7 +37,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="5E1-OO-ZmE" kind="show" id="Qlk-Fm-l4f"/>
+                                                    <action selector="onStartClick:" destination="LA4-wl-DX4" eventType="touchUpInside" id="ZFM-ng-l1d"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -64,11 +64,12 @@
                     </view>
                     <connections>
                         <outlet property="startBtn" destination="Inf-60-LNg" id="xEa-cM-eJf"/>
+                        <segue destination="5E1-OO-ZmE" kind="presentation" identifier="goToSignIn" id="xtR-9r-k8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K2-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-816" y="134"/>
+            <point key="canvasLocation" x="-1203" y="134"/>
         </scene>
         <!--loginVC-->
         <scene sceneID="dUu-n2-koy">
