@@ -44,8 +44,15 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="boE-jt-gqh">
-                                                <rect key="frame" x="0.0" y="30" width="314" height="484"/>
+                                                <rect key="frame" x="0.0" y="30" width="314" height="454"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMD-16-yoh">
+                                                <rect key="frame" x="0.0" y="484" width="314" height="30"/>
+                                                <state key="normal" title="TEST PROFILE"/>
+                                                <connections>
+                                                    <action selector="test:" destination="0PA-PP-Uq3" eventType="touchUpInside" id="Cb2-Od-YO1"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-4f-GuE" userLabel="lower container">
                                                 <rect key="frame" x="0.0" y="514" width="314" height="228"/>
                                                 <subviews>
@@ -119,6 +126,9 @@
                         <viewLayoutGuide key="safeArea" id="2dB-kX-dMd"/>
                     </view>
                     <navigationItem key="navigationItem" id="eWw-AL-7u7"/>
+                    <connections>
+                        <outlet property="test" destination="aMD-16-yoh" id="qzC-RY-NU1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPi-0m-xc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -332,12 +342,22 @@
             </objects>
             <point key="canvasLocation" x="1465" y="68"/>
         </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="nqr-M2-c35">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Profile.stor" storyboardName="Profile" referencedIdentifier="ProfileViewController" id="ch7-eM-LNE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HHV-Cx-quG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ei9-Rp-S7j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-101" y="491"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logo" width="601" height="601"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aI3-Kw-XBl"/>
-        <segue reference="z3c-u0-1ki"/>
+        <segue reference="euy-xe-vFh"/>
     </inferredMetricsTieBreakers>
 </document>

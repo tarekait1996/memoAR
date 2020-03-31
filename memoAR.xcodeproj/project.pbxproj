@@ -20,6 +20,8 @@
 		1831F1A32432702D0044DD12 /* WelcomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831F1A22432702D0044DD12 /* WelcomeScreenVC.swift */; };
 		18B18C41242D71B80067A9C6 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B18C40242D71B80067A9C6 /* Auth.storyboard */; };
 		718D2AFC233153EF0075B672 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 718D2AFB233153EF0075B672 /* README.md */; };
+		85A6C89424328BEF00E294A1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A6C89324328BEF00E294A1 /* Profile.storyboard */; };
+		85A6C8D82432C96E00E294A1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A6C8D72432C96E00E294A1 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		18B18C40242D71B80067A9C6 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		718D2AFB233153EF0075B672 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		79A3D4B5FDAD8799EE5A506F /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		85A6C89324328BEF00E294A1 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		85A6C8D72432C96E00E294A1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B40803DB8FC0BFFCE474F17F /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,7 @@
 				1831F19F24326B9D0044DD12 /* CameraAR */,
 				1831F19B24326A3D0044DD12 /* SignInViewController.swift */,
 				1831F1A22432702D0044DD12 /* WelcomeScreenVC.swift */,
+				85A6C8D72432C96E00E294A1 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 				0C34B3D223077FC2005DB76E /* Main.storyboard */,
 				18B18C40242D71B80067A9C6 /* Auth.storyboard */,
 				0C34B3D723077FC5005DB76E /* LaunchScreen.storyboard */,
+				85A6C89324328BEF00E294A1 /* Profile.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,7 +181,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */;
+			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -198,6 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A6C89424328BEF00E294A1 /* Profile.storyboard in Resources */,
 				0C34B3D923077FC5005DB76E /* LaunchScreen.storyboard in Resources */,
 				0C34B3D623077FC5005DB76E /* Assets.xcassets in Resources */,
 				18B18C41242D71B80067A9C6 /* Auth.storyboard in Resources */,
@@ -217,6 +224,7 @@
 				0C968A51230CB2EA00B415B3 /* MultipeerSession.swift in Sources */,
 				0C34B3CF23077FC2005DB76E /* CameraViewController.swift in Sources */,
 				0CCDFA76230F13570095AFDB /* MessageLabel.swift in Sources */,
+				85A6C8D82432C96E00E294A1 /* ProfileViewController.swift in Sources */,
 				0CCDFA78230F1BF70095AFDB /* ViewController+CoachingOverlay.swift in Sources */,
 				1831F1A32432702D0044DD12 /* WelcomeScreenVC.swift in Sources */,
 				0C968A53230DD14F00B415B3 /* Utilities.swift in Sources */,
@@ -368,7 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8L764T79D;
+				DEVELOPMENT_TEAM = WQL6263Z65;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -389,7 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8L764T79D;
+				DEVELOPMENT_TEAM = WQL6263Z65;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -407,7 +415,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */ = {
+		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C34B3DB23077FC5005DB76E /* Debug */,
