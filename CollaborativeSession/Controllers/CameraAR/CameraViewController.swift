@@ -12,7 +12,7 @@ import MultipeerConnectivity
 
 class ViewController: UIViewController, ARSessionDelegate {
     
-    var text: String = "hello world"
+    var text: NSString = "hello world"
     @IBOutlet var arView: ARView!
     @IBOutlet weak var messageLabel: MessageLabel!
     @IBOutlet weak var restartButton: UIButton!
@@ -101,8 +101,13 @@ class ViewController: UIViewController, ARSessionDelegate {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
             let textField = alertController?.textFields![0]
             self.text = textField!.text!
+            if !multipeerSession.connectedPeers.isEmpty {
+                guard let encodedText = try? NSKeyedArchiver.archivedData(withRootObject: self.text, requiringSecureCoding: true)
+                else { fatalError("Unexpectedly failed to encode collaboration data.") }
+                multipeerSession.sendToAllPeers(encodedText, reliably: .critital)
+            }
             self.arView.session.add(anchor: anchor)
-            }))
+        }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
         
@@ -174,6 +179,10 @@ class ViewController: UIViewController, ARSessionDelegate {
     func receivedData(_ data: Data, from peer: MCPeerID) {
         if let collaborationData = try? NSKeyedUnarchiver.unarchivedObject(ofClass: ARSession.CollaborationData.self, from: data) {
             arView.session.update(with: collaborationData!)
+            return
+        }
+        if let collaborationText = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSString.self, from: data) {
+            self.text = collaborationText
             return
         }
         // ...
