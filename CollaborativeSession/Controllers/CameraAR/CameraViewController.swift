@@ -48,6 +48,9 @@ class ViewController: UIViewController, ARSessionDelegate {
         
         // Enable realistic reflections.
         configuration?.environmentTexturing = .automatic
+        
+        //set Plane detection
+        configuration?.planeDetection = [.horizontal, .vertical]
 
         // Begin the session.
         arView.session.run(configuration!)
@@ -134,7 +137,7 @@ class ViewController: UIViewController, ARSessionDelegate {
                 let sphereRadius: Float = 0.2
                 let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
                 let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
-                                                materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
+                                                materials: [SimpleMaterial(color: color.withAlphaComponent(0.4), isMetallic: true)])
                 //Generate Text
                 
                 let coloredText =  ModelEntity(mesh: MeshResource.generateText(self.text as String,
@@ -167,8 +170,6 @@ class ViewController: UIViewController, ARSessionDelegate {
             else { fatalError("Unexpectedly failed to encode collaboration data.") }
             // Use reliable mode if the data is critical, and unreliable mode if the data is optional.
             let dataIsCritical = data.priority == .critical
-//            let dataToSend = NSKeyedArchiver.archivedData(withRootObject: text)
-//            multipeerSession.sendToAllPeers(dataToSend, reliably: dataIsCritical)
             multipeerSession.sendToAllPeers(encodedData, reliably: dataIsCritical)
             
         } else {
