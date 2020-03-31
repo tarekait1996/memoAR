@@ -48,6 +48,9 @@ class ViewController: UIViewController, ARSessionDelegate {
         
         // Enable realistic reflections.
         configuration?.environmentTexturing = .automatic
+        
+        //set Plane detection
+        configuration?.planeDetection = [.horizontal, .vertical]
 
         // Begin the session.
         arView.session.run(configuration!)
@@ -167,8 +170,6 @@ class ViewController: UIViewController, ARSessionDelegate {
             else { fatalError("Unexpectedly failed to encode collaboration data.") }
             // Use reliable mode if the data is critical, and unreliable mode if the data is optional.
             let dataIsCritical = data.priority == .critical
-//            let dataToSend = NSKeyedArchiver.archivedData(withRootObject: text)
-//            multipeerSession.sendToAllPeers(dataToSend, reliably: dataIsCritical)
             multipeerSession.sendToAllPeers(encodedData, reliably: dataIsCritical)
             
         } else {
@@ -178,8 +179,10 @@ class ViewController: UIViewController, ARSessionDelegate {
 
     func receivedData(_ data: Data, from peer: MCPeerID) {
         if let collaborationData = try? NSKeyedUnarchiver.unarchivedObject(ofClass: ARSession.CollaborationData.self, from: data) {
-            arView.session.update(with: collaborationData!)
-            return
+            if (collaborationData != nil){
+                arView.session.update(with: collaborationData!)
+                return
+            }
         }
         if let collaborationText = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSString.self, from: data) {
             self.text = collaborationText!
