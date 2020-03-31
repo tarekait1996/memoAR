@@ -100,11 +100,11 @@ class ViewController: UIViewController, ARSessionDelegate {
         
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
             let textField = alertController?.textFields![0]
-            self.text = textField!.text!
-            if !multipeerSession.connectedPeers.isEmpty {
+            self.text = textField!.text! as NSString
+            if !(self.multipeerSession?.connectedPeers.isEmpty)! {
                 guard let encodedText = try? NSKeyedArchiver.archivedData(withRootObject: self.text, requiringSecureCoding: true)
                 else { fatalError("Unexpectedly failed to encode collaboration data.") }
-                multipeerSession.sendToAllPeers(encodedText, reliably: .critital)
+                self.multipeerSession?.sendToAllPeers(encodedText, reliably: true)
             }
             self.arView.session.add(anchor: anchor)
         }))
@@ -134,10 +134,10 @@ class ViewController: UIViewController, ARSessionDelegate {
                 let sphereRadius: Float = 0.2
                 let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
                 let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
-                                                materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
+                                                materials: [SimpleMaterial(color: color.withAlphaComponent(0.4), isMetallic: true)])
                 //Generate Text
                 
-                let coloredText =  ModelEntity(mesh: MeshResource.generateText(self.text,
+                let coloredText =  ModelEntity(mesh: MeshResource.generateText(self.text as String,
                                                                                extrusionDepth: 0.01,
                                                                                font: .systemFont(ofSize: 0.05),
                                                                                containerFrame: CGRect.init(x: Double(-sphereRadius), y: Double(-sphereRadius)/2, width: 0.4, height: 0.4),
@@ -182,7 +182,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             return
         }
         if let collaborationText = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSString.self, from: data) {
-            self.text = collaborationText
+            self.text = collaborationText!
             return
         }
         // ...
