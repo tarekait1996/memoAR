@@ -101,11 +101,13 @@ class ViewController: UIViewController, ARSessionDelegate {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
             let textField = alertController?.textFields![0]
             self.text = textField!.text!
-            guard let encodedText = try? NSKeyedArchiver.archivedData(withRootObject: self.text, requiringSecureCoding: true)
+            if !multipeerSession.connectedPeers.isEmpty {
+                guard let encodedText = try? NSKeyedArchiver.archivedData(withRootObject: self.text, requiringSecureCoding: true)
                 else { fatalError("Unexpectedly failed to encode collaboration data.") }
-            multipeerSession.sendToAllPeers(encodedText, reliably: .critital)
+                multipeerSession.sendToAllPeers(encodedText, reliably: .critital)
+            }
             self.arView.session.add(anchor: anchor)
-            }))
+        }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
         
