@@ -12,6 +12,7 @@ import MultipeerConnectivity
 
 class ViewController: UIViewController, ARSessionDelegate {
     
+    var text: String = "hello world"
     @IBOutlet var arView: ARView!
     @IBOutlet weak var messageLabel: MessageLabel!
     @IBOutlet weak var restartButton: UIButton!
@@ -83,14 +84,29 @@ class ViewController: UIViewController, ARSessionDelegate {
         if let firstResult = results.first {
             // Add an ARAnchor at the touch location with a special name you check later in `session(_:didAdd:)`.
             let anchor = ARAnchor(name: "Anchor for object placement", transform: firstResult.worldTransform)
-            arView.session.add(anchor: anchor)
+            self.askInput(anchor : anchor)
+            
             
         } else {
             messageLabel.displayMessage("Can't place object - no surface found.\nLook for flat surfaces.", duration: 2.0)
             print("Warning: Object placement failed.")
         }
     }
-    
+    func askInput(anchor: ARAnchor) {
+        let alertController = UIAlertController(title: "Please enter your feedback below", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter text here"
+        }
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
+            let textField = alertController?.textFields![0]
+            self.text = textField!.text!
+            self.arView.session.add(anchor: anchor)
+            }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         for anchor in anchors {
             if let participantAnchor = anchor as? ARParticipantAnchor {
@@ -109,42 +125,31 @@ class ViewController: UIViewController, ARSessionDelegate {
                 arView.scene.addAnchor(anchorEntity)
             } else if anchor.name == "Anchor for object placement" {
                 //request Input
-                let alertController = UIAlertController(title: "Please enter your comment below", message: nil, preferredStyle: .alert)
-                alertController.addTextField { (textField) in
-                    textField.text = "Enter text here"
-                }
                 
-                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertController] (_) in
-                    // Create a sphere at the location of the anchor.
-                    let sphereRadius: Float = 0.2
-                    let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
-                    let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
-                                                    materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
-                    //Generate Text
-                    var textField = alertController?.textFields![0]
-                    let inputComment = textField!.text!
-                    let coloredText =  ModelEntity(mesh: MeshResource.generateText(inputComment,
-                                                                                   extrusionDepth: 0.025,
-                                                                                   font: .systemFont(ofSize: 0.01),
-                                                                                   containerFrame: CGRect.zero,
-                                                                                   alignment: .center,
-                                                                                   lineBreakMode: .byCharWrapping),
-                                                   materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: false)])
-                    
-                    // Offset the sphere by half if the bottom is not aligned with the real-world surface.
-                    coloredSphere.position = [0, sphereRadius, 0]
-                    coloredText.position = [0, sphereRadius, 0]
-                    
-                    // Attach the sphere to the ARAnchor via an AnchorEntity.
-                    //   World origin -> ARAnchor -> AnchorEntity -> ModelEntity
-                    let anchorEntity = AnchorEntity(anchor: anchor)
-                    anchorEntity.addChild(coloredSphere)
-                    anchorEntity.addChild(coloredText)
-                    arView.scene.addAnchor(anchorEntity)
-                }))
+                let sphereRadius: Float = 0.2
+                let color = anchor.sessionIdentifier?.toRandomColor() ?? .orange
+                let coloredSphere = ModelEntity(mesh: MeshResource.generateSphere(radius: sphereRadius),
+                                                materials: [SimpleMaterial(color: color.withAlphaComponent(0.6), isMetallic: true)])
+                //Generate Text
                 
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
+                let coloredText =  ModelEntity(mesh: MeshResource.generateText(self.text,
+                                                                               extrusionDepth: 0.01,
+                                                                               font: .systemFont(ofSize: 0.05),
+                                                                               containerFrame: CGRect.init(x: Double(-sphereRadius), y: Double(-sphereRadius)/2, width: 0.4, height: 0.4),
+                                                                               alignment: .center,
+                                                                               lineBreakMode: .byWordWrapping),
+                                               materials: [SimpleMaterial(color: UIColor.magenta, isMetallic: false)])
+                
+                // Offset the sphere by half if the bottom is not aligned with the real-world surface.
+                coloredSphere.position = [0, sphereRadius, 0]
+                coloredText.position = [0,0,0]
+                
+                // Attach the sphere to the ARAnchor via an AnchorEntity.
+                //   World origin -> ARAnchor -> AnchorEntity -> ModelEntity
+                let anchorEntity = AnchorEntity(anchor: anchor)
+                anchorEntity.addChild(coloredSphere)
+                anchorEntity.addChild(coloredText)
+                self.arView.scene.addAnchor(anchorEntity)
             }
         }
     }
@@ -157,7 +162,10 @@ class ViewController: UIViewController, ARSessionDelegate {
             else { fatalError("Unexpectedly failed to encode collaboration data.") }
             // Use reliable mode if the data is critical, and unreliable mode if the data is optional.
             let dataIsCritical = data.priority == .critical
+//            let dataToSend = NSKeyedArchiver.archivedData(withRootObject: text)
+//            multipeerSession.sendToAllPeers(dataToSend, reliably: dataIsCritical)
             multipeerSession.sendToAllPeers(encodedData, reliably: dataIsCritical)
+            
         } else {
             print("Deferred sending collaboration to later because there are no peers.")
         }
@@ -182,6 +190,9 @@ class ViewController: UIViewController, ARSessionDelegate {
             peerSessionIDs[peer] = newSessionID
         }
     }
+//    func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!) {
+//        self.text = NSKeyedUnarchiver.unarchiveObject(with: data! as Data) as! String
+//    }
     
     func peerDiscovered(_ peer: MCPeerID) -> Bool {
         guard let multipeerSession = multipeerSession else { return false }

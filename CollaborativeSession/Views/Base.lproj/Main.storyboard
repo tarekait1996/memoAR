@@ -64,12 +64,12 @@
                     </view>
                     <connections>
                         <outlet property="startBtn" destination="Inf-60-LNg" id="xEa-cM-eJf"/>
-                        <segue destination="5E1-OO-ZmE" kind="presentation" identifier="goToSignIn" id="xtR-9r-k8i"/>
+                        <segue destination="5E1-OO-ZmE" kind="presentation" identifier="goToSignIn" id="5qH-5G-01N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K2-siE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1203" y="134"/>
+            <point key="canvasLocation" x="-887" y="179"/>
         </scene>
         <!--loginVC-->
         <scene sceneID="dUu-n2-koy">
