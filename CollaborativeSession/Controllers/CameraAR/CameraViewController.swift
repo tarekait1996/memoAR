@@ -9,6 +9,7 @@ import UIKit
 import RealityKit
 import ARKit
 import MultipeerConnectivity
+import FocusEntity
 
 class ViewController: UIViewController, ARSessionDelegate {
     
@@ -23,6 +24,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     let coachingOverlay = ARCoachingOverlayView()
     
+    let focusSquare = FESquare()
+    
     // A dictionary to map MultiPeer IDs to ARSession ID's.
     // This is useful for keeping track of which peer created which ARAnchors.
     var peerSessionIDs = [MCPeerID: String]()
@@ -34,7 +37,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-
+        
         arView.session.delegate = self
 
         // Turn off ARView's automatically-configured session
@@ -76,6 +79,9 @@ class ViewController: UIViewController, ARSessionDelegate {
         arView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:))))
         
         messageLabel.displayMessage("Tap the screen to place comment.\nInvite others to launch this app to join you.", duration: 60.0)
+        
+        focusSquare.synchronization = nil
+        focusSquare.viewDelegate = arView
     }
     
     @objc
@@ -294,5 +300,9 @@ class ViewController: UIViewController, ARSessionDelegate {
         if let commandData = command.data(using: .utf8) {
             multipeerSession.sendToPeers(commandData, reliably: true, peers: peers)
         }
+    }
+    
+    func session(_: ARSession, didUpdate _: ARFrame) {
+      focusSquare.updateFocusNode()
     }
 }

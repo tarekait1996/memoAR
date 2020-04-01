@@ -15,17 +15,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash Screen-1" translatesAutoresizingMaskIntoConstraints="NO" id="iTA-z0-gCE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGr-eN-862">
+                                <rect key="frame" x="0.0" y="44" width="414" height="601"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="tsB-cL-rmW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="601"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tsB-cL-rmW" secondAttribute="trailing" id="72N-TP-iBV"/>
+                                    <constraint firstAttribute="bottom" secondItem="tsB-cL-rmW" secondAttribute="bottom" id="KMB-F9-wty"/>
+                                    <constraint firstItem="tsB-cL-rmW" firstAttribute="leading" secondItem="XGr-eN-862" secondAttribute="leading" id="USa-Oo-O9v"/>
+                                    <constraint firstItem="tsB-cL-rmW" firstAttribute="top" secondItem="XGr-eN-862" secondAttribute="top" id="jFH-hB-mpD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.68934953210000005" blue="0.264799118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="1" green="0.68934953210000005" blue="0.264799118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iTA-z0-gCE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="hb9-uh-DVp"/>
-                            <constraint firstItem="iTA-z0-gCE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qni-kT-qA1"/>
-                            <constraint firstAttribute="bottom" secondItem="iTA-z0-gCE" secondAttribute="bottom" id="x5y-pg-stv"/>
-                            <constraint firstAttribute="trailing" secondItem="iTA-z0-gCE" secondAttribute="trailing" id="zEx-Sc-fc5"/>
+                            <constraint firstItem="XGr-eN-862" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JLZ-Vd-Tlk"/>
+                            <constraint firstItem="XGr-eN-862" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eUT-dZ-7T4"/>
+                            <constraint firstItem="XGr-eN-862" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="w8B-Gm-U33"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Splash Screen-1" width="375" height="812"/>
+        <image name="logo" width="601" height="601"/>
     </resources>
 </document>

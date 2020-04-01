@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,12 @@
 		1831F1A32432702D0044DD12 /* WelcomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831F1A22432702D0044DD12 /* WelcomeScreenVC.swift */; };
 		1831F1A5243283160044DD12 /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831F1A4243283160044DD12 /* ReplaceSegue.swift */; };
 		1831F1A92433AC1D0044DD12 /* ProfileVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831F1A82433AC1D0044DD12 /* ProfileVCViewController.swift */; };
+		18A3315924343184004F4D25 /* Login ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3315824343184004F4D25 /* Login ViewController.swift */; };
+		18A3315B24343196004F4D25 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3315A24343196004F4D25 /* SignUpViewController.swift */; };
+		18A3315D243431A5004F4D25 /* JoinHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3315C243431A5004F4D25 /* JoinHostViewController.swift */; };
+		18A3315F243431AF004F4D25 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3315E243431AF004F4D25 /* JoinViewController.swift */; };
+		18A33161243431BB004F4D25 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A33160243431BB004F4D25 /* HostViewController.swift */; };
+		18A3316424343760004F4D25 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 18A3316324343760004F4D25 /* FocusEntity */; };
 		18B18C41242D71B80067A9C6 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B18C40242D71B80067A9C6 /* Auth.storyboard */; };
 		718D2AFC233153EF0075B672 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 718D2AFB233153EF0075B672 /* README.md */; };
 /* End PBXBuildFile section */
@@ -40,6 +46,11 @@
 		1831F1A22432702D0044DD12 /* WelcomeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenVC.swift; sourceTree = "<group>"; };
 		1831F1A4243283160044DD12 /* ReplaceSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
 		1831F1A82433AC1D0044DD12 /* ProfileVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCViewController.swift; sourceTree = "<group>"; };
+		18A3315824343184004F4D25 /* Login ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login ViewController.swift"; sourceTree = "<group>"; };
+		18A3315A24343196004F4D25 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		18A3315C243431A5004F4D25 /* JoinHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinHostViewController.swift; sourceTree = "<group>"; };
+		18A3315E243431AF004F4D25 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		18A33160243431BB004F4D25 /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
 		18B18C40242D71B80067A9C6 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		718D2AFB233153EF0075B672 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		79A3D4B5FDAD8799EE5A506F /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -51,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A3316424343760004F4D25 /* FocusEntity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +111,11 @@
 				1831F19B24326A3D0044DD12 /* SignInViewController.swift */,
 				1831F1A22432702D0044DD12 /* WelcomeScreenVC.swift */,
 				1831F1A82433AC1D0044DD12 /* ProfileVCViewController.swift */,
+				18A3315824343184004F4D25 /* Login ViewController.swift */,
+				18A3315A24343196004F4D25 /* SignUpViewController.swift */,
+				18A3315C243431A5004F4D25 /* JoinHostViewController.swift */,
+				18A3315E243431AF004F4D25 /* JoinViewController.swift */,
+				18A33160243431BB004F4D25 /* HostViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,6 +179,9 @@
 			dependencies = (
 			);
 			name = MemoAR;
+			packageProductDependencies = (
+				18A3316324343760004F4D25 /* FocusEntity */,
+			);
 			productName = CollaborativeSession;
 			productReference = 0C34B3C923077FC2005DB76E /* MemoAR.app */;
 			productType = "com.apple.product-type.application";
@@ -181,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */;
+			buildConfigurationList = 0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -190,6 +210,9 @@
 				Base,
 			);
 			mainGroup = 0C34B3C023077FC2005DB76E;
+			packageReferences = (
+				18A3316224343760004F4D25 /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
 			productRefGroup = 0C34B3CA23077FC2005DB76E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -222,12 +245,17 @@
 				1831F19C24326A3D0044DD12 /* SignInViewController.swift in Sources */,
 				0C968A51230CB2EA00B415B3 /* MultipeerSession.swift in Sources */,
 				1831F1A5243283160044DD12 /* ReplaceSegue.swift in Sources */,
+				18A3315D243431A5004F4D25 /* JoinHostViewController.swift in Sources */,
 				0C34B3CF23077FC2005DB76E /* CameraViewController.swift in Sources */,
 				0CCDFA76230F13570095AFDB /* MessageLabel.swift in Sources */,
+				18A3315F243431AF004F4D25 /* JoinViewController.swift in Sources */,
 				0CCDFA78230F1BF70095AFDB /* ViewController+CoachingOverlay.swift in Sources */,
+				18A3315B24343196004F4D25 /* SignUpViewController.swift in Sources */,
 				1831F1A32432702D0044DD12 /* WelcomeScreenVC.swift in Sources */,
 				1831F1A92433AC1D0044DD12 /* ProfileVCViewController.swift in Sources */,
+				18A33161243431BB004F4D25 /* HostViewController.swift in Sources */,
 				0C968A53230DD14F00B415B3 /* Utilities.swift in Sources */,
+				18A3315924343184004F4D25 /* Login ViewController.swift in Sources */,
 				0C34B3CD23077FC2005DB76E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WQL6263Z65;
+				DEVELOPMENT_TEAM = J8L764T79D;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,7 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WQL6263Z65;
+				DEVELOPMENT_TEAM = J8L764T79D;
 				INFOPLIST_FILE = CollaborativeSession/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -415,7 +443,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "memoAR" */ = {
+		0C34B3C423077FC2005DB76E /* Build configuration list for PBXProject "MemoAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C34B3DB23077FC5005DB76E /* Debug */,
@@ -434,6 +462,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18A3316224343760004F4D25 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18A3316324343760004F4D25 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18A3316224343760004F4D25 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C34B3C123077FC2005DB76E /* Project object */;
 }
